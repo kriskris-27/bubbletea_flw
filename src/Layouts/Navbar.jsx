@@ -34,7 +34,7 @@ const Navbar = () => {
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center">
-          <img src={tribe} alt="Tribe Drinks Logo" className="h-10 mr-3 invert" />
+          <img src={tribe} alt="Tribe Drinks Logo" className="h-10 mr-3 invert " />
         </div>
 
         {/* Desktop Menu */}
@@ -74,7 +74,7 @@ const Navbar = () => {
             whileTap={{ scale: 0.9 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            {isOpen ? <HiX size={24} /> : <HiMenu size={24} />}
+            {isOpen ? <HiX size={26} /> : <HiMenu size={26} />}
           </motion.button>
         </div>
       </div>
@@ -83,7 +83,7 @@ const Navbar = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="md:hidden absolute top-full left-0 w-full bg-black/40 backdrop-blur-xl rounded-2xl p-4"
+            className="md:hidden absolute top-full left-[10rem] w-full bg-black/40 backdrop-blur-xl rounded-2xl p-4"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
@@ -105,19 +105,7 @@ const Navbar = () => {
                 </Link>
               </motion.div>
             ))}
-            {/* Instagram Icon in Mobile Menu */}
-            <div className="flex space-x-4 mt-4">
-              <motion.a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.2, color: "#ED7423" }}
-                transition={{ type: "spring", stiffness: 200 }}
-                className="hover:text-[#ED7423]"
-              >
-                <FaInstagram size={22} />
-              </motion.a>
-            </div>
+            
           </motion.div>
         )}
       </AnimatePresence>

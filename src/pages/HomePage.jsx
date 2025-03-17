@@ -11,7 +11,11 @@ export default function HomePage() {
     <div className="relative min-h-screen text-white overflow-hidden">
       {/* Hero Section */}
       <section className="flex flex-col items-center justify-center min-h-screen text-black text-center px-6 relative z-10">
-      <BoldCopy />
+      
+      <div className="hidden md:block">
+  <BoldCopy />
+</div>
+
         <motion.h1
           className="text-6xl font-bold neon-text"
           initial={{ opacity: 0, y: -50 }}
