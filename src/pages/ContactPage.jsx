@@ -36,7 +36,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="relative min-h-screen bg-transparent text-white py-20 px-6">
+    <section id="contact" className="relative min-h-screen bg-transparent text-white py-20 px-6 font-bungee">
       {/* Background Video */}
       <div className="absolute inset-0 -z-10">
         <video autoPlay loop muted className="w-full h-full object-cover">
