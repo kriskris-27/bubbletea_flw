@@ -13,7 +13,7 @@ import FloatingSymbols from "../ui/TribalSym";
 export default function HomePage() {
 
   return (
-    <div  className="relative min-h-screen text-white overflow-hidden mt-[5rem] lg:mt-[7rem]">
+    <div  className="relative min-h-screen text-white overflow-hidden mt-[4rem] lg:mt-[7rem]">
       {/* Hero Section */}
       <section className="flex flex-col items-center justify-center  text-black text-center px-6  relative z-10">
       
@@ -29,7 +29,7 @@ export default function HomePage() {
         >
             
          <ScrollReveal className="bg-transparent overflow-y-scroll h-full no-scrollbar ">
-          <div className="flex flex-col font-bungee">
+          <div className="flex flex-col font-bungee mt-[4rem]">
           <h1 className="text-xl md:text-6xl font-bold  neon-text">
           Where the drinks are cold, the vibes are ancient, and reality might just be optional          </h1>
           <p className="mt-4 text-lg max-w-lg">
@@ -39,7 +39,7 @@ export default function HomePage() {
         </ScrollReveal>
         </motion.h1>
 
-      <FloatingMist/>
+      {/* <FloatingMist/> */}
        <FloatingSymbols/>
       </section>
 
