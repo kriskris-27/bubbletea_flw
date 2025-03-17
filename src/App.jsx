@@ -9,6 +9,8 @@ import Navbar from './Layouts/Navbar.jsx';
 import Footer from './Layouts/Footer.jsx';
 import { AuroraBackground } from './ui/aurora-background.jsx';
 import IntroAnim from './Layouts/IntroAnim.jsx';
+import LightTrail from './components/LightTrail.jsx';
+
 
 
 const App = () => {
@@ -27,11 +29,13 @@ const App = () => {
   return (
     <BrowserRouter>
 
-      <AuroraBackground className="relative z-0">
+      <AuroraBackground className="relative z-0 bg-black">
         <div>
             <IntroAnim/>
+            <LightTrail/>
+            
         <Navbar scrollToSection={scrollToSection} />
-        <div className="relative z-10 ">
+        <div className="relative  ">
           <section ref={sectionsRef.home} id="home"><HomePage /></section>
           <section ref={sectionsRef.about} id="about"><AboutPage /></section>
           <section ref={sectionsRef.menu} id="menu"><MenuPage /></section>
