@@ -34,13 +34,15 @@ const App = () => {
             <IntroAnim/>
             <LightTrail/>
             
+            
         <Navbar scrollToSection={scrollToSection} />
         <div className="relative  ">
           <section ref={sectionsRef.home} id="home"><HomePage /></section>
           <section ref={sectionsRef.about} id="about"><AboutPage /></section>
           <section ref={sectionsRef.menu} id="menu"><MenuPage /></section>
-          <section ref={sectionsRef.contact} id="contact"><ContactPage /></section>
           <section ref={sectionsRef.reviews} id="reviews"><ReviewsPage /></section>
+          <section ref={sectionsRef.contact} id="contact"><ContactPage /></section>
+          
         </div>
         <Footer />
         </div>

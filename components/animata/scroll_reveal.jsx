@@ -57,7 +57,7 @@ export default function ScrollReveal({ children, className }) {
         </div>
       </div>
       {Array.from({ length: count }).map((_, index) => (
-        <div key={index} className="h-32" />
+        <div key={index} />
       ))}
     </div>
   );
