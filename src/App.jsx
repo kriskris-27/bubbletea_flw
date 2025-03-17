@@ -1,35 +1,48 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useRef } from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import HomePage from './pages/HomePage.jsx';
+import AboutPage from './pages/AboutPage.jsx';
+import MenuPage from './pages/MenuPage.jsx';
+import ContactPage from './pages/ContactPage.jsx';
+import ReviewsPage from './pages/ReviewsPage.jsx';
+import Navbar from './Layouts/Navbar.jsx';
+import Footer from './Layouts/Footer.jsx';
+import { AuroraBackground } from './ui/aurora-background.jsx';
+import IntroAnim from './Layouts/IntroAnim.jsx';
 
-function App() {
-  const [count, setCount] = useState(0)
+
+const App = () => {
+  const sectionsRef = {
+    home: useRef(null),
+    about: useRef(null),
+    menu: useRef(null),
+    contact: useRef(null),
+    reviews: useRef(null),
+  };
+
+  const scrollToSection = (section) => {
+    sectionsRef[section]?.current?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <BrowserRouter>
 
-export default App
+      <AuroraBackground className="relative z-0">
+        <div>
+            <IntroAnim/>
+        <Navbar scrollToSection={scrollToSection} />
+        <div className="relative z-10 ">
+          <section ref={sectionsRef.home} id="home"><HomePage /></section>
+          <section ref={sectionsRef.about} id="about"><AboutPage /></section>
+          <section ref={sectionsRef.menu} id="menu"><MenuPage /></section>
+          <section ref={sectionsRef.contact} id="contact"><ContactPage /></section>
+          <section ref={sectionsRef.reviews} id="reviews"><ReviewsPage /></section>
+        </div>
+        <Footer />
+        </div>
+      </AuroraBackground>
+    </BrowserRouter>
+  );
+};
+
+export default App;
