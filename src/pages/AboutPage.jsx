@@ -8,13 +8,15 @@ const About = () => {
       {/* Hero Section */}
       <div className="absolute inset-0 z-0">
         <video
-          autoPlay
-          loop
-          muted
-          className="w-full h-full object-cover opacity-30"
-        >
-          <source src="/bgvideo.mp4" type="video/mp4" />
-        </video>
+  autoPlay
+  loop
+  muted
+  playsInline
+  className="w-full h-full object-cover opacity-30"
+>
+  <source src="/bgvideo.mp4" type="video/mp4" />
+</video>
+
       </div>
 
       <div className="relative z-10 flex flex-col items-center text-center py-20 px-6">

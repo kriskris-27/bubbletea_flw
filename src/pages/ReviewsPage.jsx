@@ -26,8 +26,10 @@ const reviews = [
 
 export default function Reviews() {
   const cardsRef = useRef([]);
+  const moonRef = useRef(null);
 
   useEffect(() => {
+    // Animate review cards
     cardsRef.current.forEach((card, i) => {
       gsap.fromTo(
         card,
@@ -41,12 +43,35 @@ export default function Reviews() {
         }
       );
     });
+
+    // Floating moon animation
+    gsap.to(moonRef.current, {
+      y: 20,
+      repeat: -1,
+      yoyo: true,
+      duration: 4,
+      ease: "sine.inOut",
+    });
   }, []);
 
   return (
-    <div id="review" className="relative min-h-screen bg-black text-white flex flex-col items-center py-20">
+    <div
+      id="review"
+      className="relative min-h-screen text-white flex flex-col items-center py-20 bg-black bg-cover bg-center"
+      style={{
+        backgroundImage: `url('https://source.unsplash.com/1600x900/?night,stars')`, // Night sky background
+      }}
+    >
+      {/* Glowing Moon in Corner */}
+      <div className="absolute top-5 right-5 md:top-10 md:right-20 z-0">
+        <div
+          ref={moonRef}
+          className="w-48 h-48 md:w-64 md:h-64 bg-gray-300 rounded-full blur-xl opacity-50 shadow-[0px_0px_100px_40px_rgba(255,255,255,0.3)]"
+        ></div>
+      </div>
+
       <motion.h2
-        className="text-4xl md:text-6xl font-bold neon-text mb-12 font-bungee"
+        className="text-4xl md:text-6xl font-bold neon-text mb-12 font-bungee relative z-10"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
@@ -54,7 +79,7 @@ export default function Reviews() {
         Tribal Tales: What They Say
       </motion.h2>
 
-      <div className="flex flex-wrap justify-center gap-8 max-w-5xl">
+      <div className="flex flex-wrap justify-center gap-8 max-w-5xl relative z-10">
         {reviews.map((review, i) => (
           <div
             key={i}

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
-import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaInstagram, FaWhatsapp } from "react-icons/fa";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -11,27 +11,14 @@ const Contact = () => {
   });
   const [submitted, setSubmitted] = useState(false);
 
-  // Handle input changes
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Here you could send the formData to your backend or FormSubmit service if needed.
-    // For demonstration, we simulate a successful submission:
     setSubmitted(true);
-
-    // Clear the input fields
-    setFormData({
-      name: "",
-      email: "",
-      message: "",
-    });
-
-    // Optionally, hide the message after a few seconds:
+    setFormData({ name: "", email: "", message: "" });
     setTimeout(() => setSubmitted(false), 5000);
   };
 
@@ -39,7 +26,7 @@ const Contact = () => {
     <section id="contact" className="relative min-h-screen bg-transparent text-white py-20 px-6 font-bungee">
       {/* Background Video */}
       <div className="absolute inset-0 -z-10">
-        <video autoPlay loop muted className="w-full h-full object-cover">
+        <video autoPlay loop muted playsInline className="w-full h-full object-cover">
           <source src="/bgvideo.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black/50"></div>
@@ -68,17 +55,7 @@ const Contact = () => {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-3xl font-bold text-[#ED7423] mb-6">Get in Touch</h2>
-
-          {/* Contact Form */}
           <form onSubmit={handleSubmit} className="space-y-6">
-            <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_template" value="table" />
-            <input
-              type="hidden"
-              name="_autoresponse"
-              value="Thank you for reaching out! We will get back to you soon."
-            />
-
             <div>
               <label className="text-gray-400">Your Name</label>
               <input
@@ -91,7 +68,6 @@ const Contact = () => {
                 required
               />
             </div>
-
             <div>
               <label className="text-gray-400">Email Address</label>
               <input
@@ -104,7 +80,6 @@ const Contact = () => {
                 required
               />
             </div>
-
             <div>
               <label className="text-gray-400">Your Message</label>
               <textarea
@@ -117,7 +92,6 @@ const Contact = () => {
                 required
               ></textarea>
             </div>
-
             <motion.button
               type="submit"
               className="w-full bg-[#ED7423] text-white font-bold py-3 rounded-lg transition transform hover:scale-105 hover:shadow-lg hover:bg-[#FF8C42]"
@@ -127,7 +101,6 @@ const Contact = () => {
             </motion.button>
           </form>
 
-          {/* Success Message */}
           {submitted && (
             <div className="mt-4 text-green-400 text-center font-medium">
               Message received! Thank you for reaching out.
@@ -135,18 +108,25 @@ const Contact = () => {
           )}
         </motion.div>
 
-        {/* Contact Info & Map */}
+        {/* Contact Info & Socials */}
         <motion.div
           className="flex flex-col space-y-6"
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
         >
-          {/* Contact Details */}
           <div className="bg-[#1A1A1A] p-6 rounded-xl shadow-lg border border-[#ED7423]/50">
             <h3 className="text-2xl font-bold text-[#ED7423] mb-4">Our Location</h3>
             <p className="text-gray-300 flex items-center">
-              <FaMapMarkerAlt className="mr-2 text-[#ED7423]" /> 42 Cosmic St, Psychedelic City
+              <FaMapMarkerAlt className="mr-2 text-[#ED7423]" />
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=42+Cosmic+St,+Psychedelic+City"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[#FF8C42] transition"
+              >
+                42 Cosmic St, Psychedelic City
+              </a>
             </p>
             <p className="text-gray-300 flex items-center mt-2">
               <FaPhoneAlt className="mr-2 text-[#ED7423]" />
@@ -162,11 +142,30 @@ const Contact = () => {
             </p>
           </div>
 
-          {/* Google Maps */}
-          <motion.div
-            className="overflow-hidden rounded-xl shadow-lg border border-[#ED7423]/50"
-            whileHover={{ scale: 1.05 }}
-          >
+          {/* Social Media Links */}
+          <div className="flex space-x-6 justify-center">
+            <motion.a
+              href="https://wa.me/15554206969"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-3xl text-green-400 hover:text-green-500 transition"
+              whileHover={{ scale: 1.2 }}
+            >
+              <FaWhatsapp />
+            </motion.a>
+            <motion.a
+              href="https://www.instagram.com/yourinstapage"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-3xl text-pink-500 hover:text-pink-600 transition"
+              whileHover={{ scale: 1.2 }}
+            >
+              <FaInstagram />
+            </motion.a>
+          </div>
+
+          {/* Google Map */}
+          <motion.div className="overflow-hidden rounded-xl shadow-lg border border-[#ED7423]/50" whileHover={{ scale: 1.05 }}>
             <iframe
               title="Google Maps"
               className="w-full h-64 rounded-lg"
