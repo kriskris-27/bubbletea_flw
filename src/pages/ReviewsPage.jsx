@@ -93,7 +93,7 @@ export default function Reviews() {
                 className="w-12 h-12 rounded-full border-2 border-pink-400"
               />
               <div>
-                <h3 className="text-lg font-bold">{review.name}</h3>
+                    <h3 className="text-lg font-bold">{review.name}</h3>
                 <div className="flex">
                   {Array(review.rating)
                     .fill("⭐")
