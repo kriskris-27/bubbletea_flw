@@ -4,6 +4,7 @@ import { HiMenu, HiX } from "react-icons/hi";
 // eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from "framer-motion";
 import tribe from "../assets/tribe.png";
+import tikimask from "../assets/tiki-mask.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,8 +37,8 @@ const Navbar = () => {
   const navItems = [
     { name: "𓃠 HOME", id: "home" },
     { name: "𓃶 ABOUT", id: "about" },
-    { name: "☦︎ MENU", id: "menu" },
-    { name: "☠ CONTACT", id: "contact" },
+    { name: "☕︎ MENU", id: "menu" },
+    { name: "☦︎ CONTACT", id: "contact" },
     { name: "⚕ REVIEWS", id: "reviews" },
   ];
 
@@ -51,6 +52,7 @@ const Navbar = () => {
         {/* Logo */}
         <div className="flex items-center">
           <img src={tribe} alt="Tribe Drinks Logo" className="h-10 mr-3 invert" />
+          <img src={tikimask} className="h-10 invert"/>
         </div>
 
         {/* Desktop Menu */}
