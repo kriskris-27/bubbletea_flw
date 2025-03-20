@@ -17,10 +17,10 @@ export default function HomePage() {
           transition={{ duration: 1 }}
         >
           <ScrollReveal className="bg-transparent font-bungee text-white h-[100vh] flex items-center justify-center">
-            <h1 className="text-2xl md:text-7xl font-bungee font-bold neon-text">
+            <h1 className="text-3xl md:text-7xl font-bungee font-bold neon-text">
               Where the drinks are cold, the vibes are ancient, and reality might just be optional
             </h1>
-            <p className="text-xl md:text-3xl lg:text-4xl max-w-lg">𓄃✴𓃢Fusion drinks crafted with neon dreams𓃻⚰︎༘⋆.</p>
+            <p className="text-2l md:text-3xl lg:text-4xl max-w-lg">𓄃𓃢Fusion drinks crafted with neon dreams⚰︎༘⋆.</p>
           </ScrollReveal>
 
           
